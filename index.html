@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Modern JS Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -12,13 +13,15 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
         #calculator {
             background-color: #2f3640;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            width: 320px;
+            width: 90vw;
+            max-width: 400px;
         }
         #display {
             width: 100%;
@@ -43,7 +46,7 @@
             font-size: 18px;
         }
         .button {
-            width: 70px;
+            width: 100%;
             height: 50px;
             margin: 5px;
             font-size: 18px;
@@ -68,9 +71,26 @@
         .calculator-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
+            grid-gap: 5px;
         }
         .calculator-grid.memory-buttons {
             grid-template-columns: repeat(3, 1fr);
+            grid-gap: 5px;
+        }
+        @media screen and (max-width: 480px) {
+            #display {
+                height: 50px;
+                font-size: 20px;
+            }
+            #memoryDisplay {
+                height: 40px;
+                font-size: 16px;
+            }
+            .button {
+                height: 40px;
+                font-size: 16px;
+                margin: 3px;
+            }
         }
     </style>
 </head>
@@ -107,7 +127,7 @@
         <button class="button" onclick="appendToDisplay('3')">3</button>
         <button class="button operator" onclick="appendToDisplay('+')">+</button>
 
-        <button class="button" onclick="appendToDisplay('0')">0</button>
+        <button class="button" style="grid-column: span 2;" onclick="appendToDisplay('0')">0</button>
         <button class="button" onclick="appendToDisplay('.')">.</button>
         <button class="button equal" onclick="calculateResult()">=</button>
     </div>
