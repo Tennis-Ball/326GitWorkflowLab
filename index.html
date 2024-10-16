@@ -2,74 +2,138 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Modern JS Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Calculator</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+            background-color: #f1f2f6;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
         #calculator {
-            width: 400px;
-            margin: 0 auto;
+            background-color: #2f3640;
             padding: 20px;
-            border: 2px solid #000;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            width: 90vw;
+            max-width: 400px;
         }
-        button {
-            width: 60px;
-            height: 40px;
-            font-size: 18px;
-        }
-        input {
-            width: 360px;
-            height: 40px;
+        #display {
+            width: 100%;
+            height: 60px;
+            background-color: #dcdde1;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
             text-align: right;
+            padding-right: 10px;
+            font-size: 24px;
+        }
+        #memoryDisplay {
+            width: 100%;
+            height: 40px;
+            background-color: #dcdde1;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: right;
+            padding-right: 10px;
             font-size: 18px;
+        }
+        .button {
+            width: 100%;
+            height: 50px;
+            margin: 5px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #718093;
+            cursor: pointer;
+        }
+        .button.operator {
+            background-color: #e1b12c;
+        }
+        .button.equal {
+            background-color: #44bd32;
+        }
+        .button.function {
+            background-color: #273c75;
+        }
+        .button.memory {
+            background-color: #40739e;
+        }
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 5px;
+        }
+        .calculator-grid.memory-buttons {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 5px;
+        }
+        @media screen and (max-width: 480px) {
+            #display {
+                height: 50px;
+                font-size: 20px;
+            }
+            #memoryDisplay {
+                height: 40px;
+                font-size: 16px;
+            }
+            .button {
+                height: 40px;
+                font-size: 16px;
+                margin: 3px;
+            }
         }
     </style>
 </head>
 <body>
 
-<h1>Simple JS Calculator</h1>
 <div id="calculator">
-    <input type="text" id="display" disabled><br><br>
-    <!-- Memory display -->
-    <input type="text" id="memoryDisplay" placeholder="Memory: 0" disabled><br><br>
+    <input type="text" id="display" disabled>
+    <input type="text" id="memoryDisplay" placeholder="Memory: 0" disabled>
 
-    <!-- Memory buttons -->
-    <button onclick="memoryStore()">Store</button>
-    <button onclick="memoryRecall()">Recall</button>
-    <button onclick="memoryClear()">Reset</button>
-    <button onclick="memoryAdd()">M+</button>
-    <button onclick="memorySubtract()">M-</button><br><br>
-    <button onclick="runSquareRoot()"> sqrt()</button>
+    <div class="calculator-grid memory-buttons">
+        <button class="button memory" onclick="memoryStore()">MS</button>
+        <button class="button memory" onclick="memoryRecall()">MR</button>
+        <button class="button memory" onclick="memoryClear()">MC</button>
+          <button onclick="memoryAdd()">M+</button>
+          <button onclick="memorySubtract()">M-</button><br><br>
+          <button onclick="runSquareRoot()"> sqrt()</button>
+    </div>
 
-    <!-- Calculator buttons -->
-    <button onclick="clearDisplay()">C</button>
-    <button onclick="deleteLast()">Del</button>
-    <button onclick="appendToDisplay('/')">/</button>
-    <button onclick="appendToDisplay('*')">*</button><br><br>
-        <!-- Add your features here -->
-    
-    <button onclick="appendToDisplay('7')">7</button>
-    <button onclick="appendToDisplay('8')">8</button>
-    <button onclick="appendToDisplay('9')">9</button>
-    <button onclick="appendToDisplay('-')">-</button><br><br>
-    
-    <button onclick="appendToDisplay('4')">4</button>
-    <button onclick="appendToDisplay('5')">5</button>
-    <button onclick="appendToDisplay('6')">6</button>
-    <button onclick="appendToDisplay('+')">+</button><br><br>
-    
-    <button onclick="appendToDisplay('1')">1</button>
-    <button onclick="appendToDisplay('2')">2</button>
-    <button onclick="appendToDisplay('3')">3</button>
-    <button onclick="calculateResult()">=</button><br><br>
+    <div class="calculator-grid">
+        <button class="button function" onclick="clearDisplay()">C</button>
+        <button class="button function" onclick="deleteLast()">DEL</button>
+        <button class="button function" onclick="runSquareRoot()">√</button>
+        <button class="button operator" onclick="appendToDisplay('/')">÷</button>
 
-    <button onclick="appendToDisplay('0')">0</button>
-    <button onclick="appendToDisplay('.')">.</button>
+        <button class="button" onclick="appendToDisplay('7')">7</button>
+        <button class="button" onclick="appendToDisplay('8')">8</button>
+        <button class="button" onclick="appendToDisplay('9')">9</button>
+        <button class="button operator" onclick="appendToDisplay('*')">×</button>
 
-     <!-- TODO: Add extra function operations -->
+        <button class="button" onclick="appendToDisplay('4')">4</button>
+        <button class="button" onclick="appendToDisplay('5')">5</button>
+        <button class="button" onclick="appendToDisplay('6')">6</button>
+        <button class="button operator" onclick="appendToDisplay('-')">−</button>
+
+        <button class="button" onclick="appendToDisplay('1')">1</button>
+        <button class="button" onclick="appendToDisplay('2')">2</button>
+        <button class="button" onclick="appendToDisplay('3')">3</button>
+        <button class="button operator" onclick="appendToDisplay('+')">+</button>
+
+        <button class="button" style="grid-column: span 2;" onclick="appendToDisplay('0')">0</button>
+        <button class="button" onclick="appendToDisplay('.')">.</button>
+        <button class="button equal" onclick="calculateResult()">=</button>
+    </div>
 </div>
 
 <script src="calculator.js"></script>
