@@ -37,14 +37,14 @@ ensuring the production branch is reliably functional.
 
 ### TODO Features:
 
-- [ ] Implement square root function
-- [ ] Implement square function
-- [ ] Add keyboard support for number input
-- [ ] Improve the design (CSS styling)
-- [ ] Memory Store (`MS`), Recall (`MR`), and Clear (`MC`)
+- [x] Implement square root function
+- [x] Implement square function
+- [x] Add keyboard support for number input
+- [x] Improve the design (CSS styling)
+- [x] Memory Store (`MS`), Recall (`MR`), and Clear (`MC`)
 
 ### Bugs:
-- [ ] Fix reciprocal function
+- [x] Fix reciprocal function
 
 ## Roadmap
 
@@ -53,14 +53,14 @@ JavaScript calculator, while encouraging contributions and learning. Below is
 the roadmap for future improvements and features:
 
 1. **Basic Calculator Expansion**:
-   - [ ] Implement scientific calculator functions like square root, square, and
+   - [x] Implement scientific calculator functions like square root, square, and
          reciprocal.
-   - [ ] Add more advanced memory functions, such as memory addition and
+   - [x] Add more advanced memory functions, such as memory addition and
          subtraction (`M+`, `M-`).
 
 2. **UI/UX Improvements**:
-   - [ ] Design a more user-friendly and modern UI.
-   - [ ] Add responsiveness for mobile devices.
+   - [x] Design a more user-friendly and modern UI.
+   - [x] Add responsiveness for mobile devices.
 
 3. **Input & Error Handling**:
    - [ ] Enable keyboard input for numbers and operations.
