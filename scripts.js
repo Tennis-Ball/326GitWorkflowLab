@@ -16,9 +16,16 @@ function deleteLast() {
 
 function calculateResult() {
     try {
-        display.value = eval(display.value);
+        let result = eval(display.value);
+        if (result === Infinity || result === -Infinity) {
+            display.value = 'Error: Division by zero';
+        } else if (isNaN(result)) {
+            display.value = 'Error: Invalid calculation';
+        } else {
+            display.value = result;
+        }
     } catch (error) {
-        display.value = 'Error';
+        display.value = 'Error: Invalid input';
     }
 }
 
@@ -60,3 +67,26 @@ function memorySubtract() {
     memory -= parseFloat(display.value) || 0;
     memoryDisplay.value = 'Memory: ' + memory;
 }
+
+document.addEventListener('keydown', function(event) {
+    const key = event.key;
+    if (/\d/.test(key)) {
+        appendToDisplay(key);
+    } else if (key === '+') {
+        appendToDisplay('+');
+    } else if (key === '-') {
+        appendToDisplay('-');
+    } else if (key === '*') {
+        appendToDisplay('*');
+    } else if (key === '/') {
+        appendToDisplay('/');
+    } else if (key === '.') {
+        appendToDisplay('.');
+    } else if (key === 'Enter' || key === '=') {
+        calculateResult();
+    } else if (key === 'Backspace') {
+        deleteLast();
+    } else if (key === 'Escape') {
+        clearDisplay();
+    }
+});
