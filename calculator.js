@@ -1,49 +1,65 @@
-
-
-// TODO: Fix the square root function not displaying
+/**
+ * Calculates the square root of a given value.
+ * @param {number} value - The value to calculate the square root of.
+ * @returns {number} - The square root of the input value.
+ */
 function calculateSquareRoot(value) {
     return Math.sqrt(value);
-    // return the square root of the value
 }
 
-// TODO: Implement square function
+/**
+ * Calculates the square of a given value.
+ * @param {number} value - The value to square.
+ * @returns {number} - The square of the input value.
+ */
 function calculateSquare(value) {
-    return value*value
-
+    return value * value;
 }
 
-// BUG: FIX reciprocal function
+/**
+ * Calculates the reciprocal of a given value.
+ * @param {number} value - The value to find the reciprocal of.
+ * @returns {number} - The reciprocal of the input value.
+ */
 function calculateReciprocal(value) {
-    // Hint: Reciprocal is 1/x
-    // return the square root of the value
     return 1 / value;
-
 }
 
-// TODO: Implement natural log function
+/**
+ * Calculates the natural logarithm (base e) of a given value.
+ * @param {number} value - The value to calculate the natural logarithm of.
+ * @returns {number} - The natural logarithm of the input value.
+ */
 function naturalLog(value) {
     return Math.log(value);
 }
 
-// TODO: Implement sine function
+/**
+ * Calculates the sine of a given angle (in radians).
+ * @param {number} value - The angle in radians.
+ * @returns {number} - The sine of the input angle.
+ */
 function sine(value) {
-    // return the sine of the value
-    return Math.sine(value);
-
+    return Math.sin(value);
 }
 
-// TODO: Implement cosine function
+/**
+ * Calculates the cosine of a given angle (in radians).
+ * @param {number} value - The angle in radians.
+ * @returns {number} - The cosine of the input angle.
+ */
 function cosine(value) {
     return Math.cos(value);
 }
 
-// TODO: Implement tangent function
+/**
+ * Calculates the tangent of a given angle (in radians).
+ * @param {number} value - The angle in radians.
+ * @returns {number} - The tangent of the input angle.
+ */
 function tangent(value) {
     return Math.tan(value);
 }
-
-
-
 
 module.exports = {
     calculateSquareRoot,
